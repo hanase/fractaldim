@@ -21,7 +21,7 @@ fd.get(fractaldim, method)
 \value{A \code{\link{FractalDim}} object.  The original \code{fractaldim} arrays \code{fd} and \code{scale} are reduced in the last dimension into only one method, namely the given \code{method}. }
 
 \examples{
-if (requireNamespace("RandomFields", quietly = TRUE)) withAutoprint({
+\dontrun{
 library(RandomFields)
 x <- seq(0, 10000)
 # generate a random field
@@ -44,7 +44,10 @@ for (imeth in 2:length(methods))
     lines(ts(fd.get (fdts, methods[imeth])$fd), col=cols[imeth])
 legend('topleft', legend=methods, col=cols, lwd=1)
 abline(h=2-truealpha/2)
+}
+\dontshow{
 #	for (imeth in 1:length(methods)) fd.get (fdts, methods[imeth])$fd
-})}
+}
+}
 \seealso{\code{\link{fd.estimate}}, \code{\link{fd.get.available.methods}}}
 \keyword{programming}
