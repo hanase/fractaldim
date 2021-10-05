@@ -44,10 +44,9 @@ for (imeth in 2:length(methods))
     lines(ts(fd.get (fdts, methods[imeth])$fd), col=cols[imeth])
 legend('topleft', legend=methods, col=cols, lwd=1)
 abline(h=2-truealpha/2)
-}
 \dontshow{
 #	for (imeth in 1:length(methods)) fd.get (fdts, methods[imeth])$fd
-}
+}}
 }
 \seealso{\code{\link{fd.estimate}}, \code{\link{fd.get.available.methods}}}
 \keyword{programming}
