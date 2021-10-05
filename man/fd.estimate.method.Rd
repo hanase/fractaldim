@@ -242,7 +242,6 @@ For using multiple estimation methods via one function see \code{\link{fd.estima
 
 
 \examples{
-\dontrun{
 library(RandomFields)
 # 1d time series
 n <- 256
@@ -270,7 +269,7 @@ par(mfrow=c(1,3))
 fd.estim.isotropic (rf2d, p.index = 1, direction='hv',
                        plot.loglog = TRUE, plot.allpoints = TRUE)
 fd.estim.squareincr (rf2d, p.index = 1, plot.loglog = TRUE, plot.allpoints = TRUE)
-fd.estim.filter1 (rf2d, p.index = 1, plot.loglog = TRUE, plot.allpoints = TRUE)}
+fd.estim.filter1 (rf2d, p.index = 1, plot.loglog = TRUE, plot.allpoints = TRUE)
 }
 \references{
 Chan, G., Hall, P., Poskitt, D. (1995) Periodogram-Based Estimators of Fractal
