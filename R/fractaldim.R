@@ -90,7 +90,8 @@ fd.estimate.matrix <- function (data, methods="transect.var",
           		complete.result$loglog[[it]] <- fractaldim$loglog
         }
     } else { # run rows in parallel
-    	requireNamespace("snowFT")
+    	if(!requireNamespace("snowFT", quietly = TRUE))
+    	    stop("Package snowFT not available.")
     	nr.nodes <- if(is.null(nr.nodes)) repl else min(repl, nr.nodes)
       	fractaldims <- snowFT::performParallel(nr.nodes, 1:repl,
                                      do.fd.estimate2d,
@@ -175,7 +176,8 @@ do.fd.estimate <- function (args, data, methods=c("variation"),
   	methodlist <- args$methodlist
   	window.size <- args$window.size
   	if(parallel) {
-  		requireNamespace("snowFT")
+  	    if(!requireNamespace("snowFT", quietly = TRUE))
+  	        stop("Package snowFT not available.")
   		nr.nodes <- if(is.null(nr.nodes)) niterations else min(niterations, nr.nodes)
   		resultlist <- snowFT::performParallel(nr.nodes, 1:niterations, do.fd.estimate.1iteration, 
   									data=data, step.size=step.size, 

@@ -99,7 +99,8 @@ fd.estim.wavelet <- function (data,  plot.loglog=FALSE,
                            J0 = floor(log2(length(data))),
                            legend.type='s', ...,
                            debuglevel=0) {
-  	requireNamespace("wavelets")
+  	if(!requireNamespace("wavelets", quietly = TRUE))
+  	    stop("Package wavelets not available.")
 
   	result <- WaveVarFD(data, filter=filter, J1=J1, J0=J0, all.points=plot.allpoints)
   	rawD <- structure(list(alpha=result$beta, intercept=result$zeta,

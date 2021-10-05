@@ -118,7 +118,8 @@ fd.Increment1 <- function(data, lags=1:2, p=2, ...) {
 }
 
 fd.estim.genton <- function (data, ...) {
-	requireNamespace("pcaPP")
+	if(!requireNamespace("pcaPP", quietly = TRUE))
+	    stop("Package pcaPP not available.")
 	return(do.fd.estimate1d.method(data, 'fd.Genton', method.name='genton',
 									method.name.main="Robust Genton", 
 									p=2, yname = "log(Y)", ...))
